@@ -1,0 +1,22 @@
+/* style.css */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 5;
+    background: #777777;
+
+    justify-content: center;
+
+    padding: 10;
+}
+
+h1 {
+    color: #e00000;
+}
+
+p {
+    color: #00b7ff;
+}
