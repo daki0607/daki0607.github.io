@@ -70,9 +70,9 @@ function centroid(a, b, c, h) {
   
   stroke(255, 0, 0, 55);
   strokeWeight(4);
-  line(a[0], a[1], bc[0], bc[1]);
-  line(b[0], b[1], ca[0], ca[1]);
-  line(c[0], c[1], ab[0], ab[1]);
+  line(a[0], a[1], isect[0], isect[1]);
+  line(b[0], b[1], isect[0], isect[1]);
+  line(c[0], c[1], isect[0], isect[1]);
   
   noStroke();
   fill(255, 0, 0, 255);
