@@ -200,4 +200,5 @@ function touchEnded() {
   amove = false;
   bmove = false;
   cmove = false;
+  return false;
 }
