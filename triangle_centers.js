@@ -134,7 +134,8 @@ function orthocenter(a, b, c) {
 }
 
 function setup() {
-  createCanvas(800, 800);
+  var canvas = createCanvas(800, 800);
+  canvas.parent('game_holder');
   
   a = [354, 520];
   b = [350, 250];
@@ -165,41 +166,6 @@ function draw() {
   H.get_points(ce, ci);
   H.show();
 }
-
-// function mousePressed() {
-//   if (abs(mouseX-a[0]) < r && abs(mouseY-a[1]) < r) {
-//     amove = true;
-//   }
-//   else if (abs(mouseX-b[0]) < r && abs(mouseY-b[1]) < r) {
-//     bmove = true;
-//   }
-//   else if (abs(mouseX-c[0]) < r && abs(mouseY-c[1]) < r) {
-//     cmove = true;
-//   }
-//   return false;
-// }
-
-// function mouseDragged() {
-//   if (amove) {
-//     a[0] = mouseX;
-//     a[1] = mouseY;
-//   }
-//   else if (bmove) {
-//     b[0] = mouseX;
-//     b[1] = mouseY;
-//   }
-//   else if (cmove) {
-//     c[0] = mouseX;
-//     c[1] = mouseY;
-//   }
-//   return false;
-// }
-
-// function mouseReleased() {
-//   amove = false;
-//   bmove = false;
-//   cmove = false;
-// }
 
 function touchStarted() {
   if (abs(mouseX-a[0]) < r && abs(mouseY-a[1]) < r) {
