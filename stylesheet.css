@@ -1,0 +1,23 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+
+#graphContainer {
+    padding: 10px;
+    float: left;
+}
+
+#evalButton {
+    padding: 10px;
+}
+
+#resetButton {
+    padding: 10px;
+}
+
+#showCirclesButton {
+    padding: 10px;
+}
