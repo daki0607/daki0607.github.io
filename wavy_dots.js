@@ -37,16 +37,22 @@ Make a list of a(n) * V(n).
 As more terms are added together from this list, the better the approximation of the original path, F, will be.
 */
 
+let graph;
+let button_eval;
+let button_reset;
+let button_show_circles;
+let draw_speed;
+
 let test_points; // On the complex plane
-let curve_points = [[-5, 62.5], [5, 62.5], [75, 87.5], [125, 0], [50, -100], [0, -125], [-50, -100], [-125, 0], [-75, 87.5]];
+let curve_points = [[-7.5, 93.75], [7.5, 93.75], [112.5, 131.25], [187.5, 0], [75, -150], [0, -187.5], [-75, -150], [-187.5, 0], [-112.5, 131.25]];
 let fpoints;
 let evaluated = false;
-let anim_speed = 0.5;
 let anim_frame = 0;
 let compression = 0;
 let path = [];
 let finished = false;
 let show_circles = true;
+
 
 
 function cmult(a, b, c, d) {
@@ -77,7 +83,7 @@ function dft(time) {
 }
 
 function evaluate_curve_points(points) {
-    let transformed = dft(points).sort(function(a, b) { //change test to curve
+    let transformed = dft(points).sort(function(a, b) {
         // Sort in order of size of circles
         return b[0]*b[0] + b[1]*b[1] - a[0]*a[0] - a[1]*a[1];
     });
@@ -119,7 +125,9 @@ function draw_circles(fpoints) {
         translate(c[0], c[1]);
     }
     if (!finished) {
-        path.push(path_point);
+        if (draw_speed.value() > 0) {
+            path.push(path_point);
+        }
     }
 }
 
@@ -143,8 +151,20 @@ function draw_axes() {
 
 
 function setup() {
-    createCanvas(500, 500);
-
+    graph = createCanvas(750, 750);
+    graph.parent('graphContainer');
+    button_eval = createButton('Evaluate');
+    button_eval.parent('evalButton');
+    button_eval.mousePressed(evaluate_curve);
+    button_reset = createButton('Reset');
+    button_reset.parent('resetButton');
+    button_reset.mousePressed(reset_all);
+    button_show_circles = createButton('Toggle Circles');
+    button_show_circles.parent('showCirclesButton');
+    button_show_circles.mousePressed(toggle_circles);
+    draw_speed = createSlider(0, 1, 0.5, 0);
+    draw_speed.parent('drawSpeed');
+    
     // test_points = [[0, 150], [100, -100], [-100, -50], [0, 0]];
 }
 
@@ -159,7 +179,7 @@ function draw() {
         draw_path(path);
         draw_circles(fpoints);
 
-        anim_frame += anim_speed;
+        anim_frame += draw_speed.value();
         if (anim_frame > 360) {
             anim_frame -= 360;
             finished = true;
@@ -170,7 +190,7 @@ function draw() {
 function reset_all() {
     curve_points = [];
     evaluated = false;
-    anim_speed = 0.5;
+    draw_speed.value(0.5);
     anim_frame = 0;
     compression = 0;
     path = [];
@@ -182,30 +202,23 @@ function reset_all() {
 
 function mouseReleased() {
     if (!evaluated) {
-        let x = map(mouseX, 0, width, -width/2, width/2);
-        let y = map(mouseY, 0, height, height/2, -height/2);
-        curve_points.push([x, y]);
+        if (mouseX > 0 & mouseX < width & mouseY > 0 & mouseY < height) {
+            let x = map(mouseX, 0, width, -width/2, width/2);
+            let y = map(mouseY, 0, height, height/2, -height/2);
+            curve_points.push([x, y]);
+        }
     }
     
     return false;
 }
 
-function keyPressed() {
-    switch (keyCode) {
-        case 13:
-            fpoints = evaluate_curve_points(curve_points);
-            evaluated = true;
-            break;
-        
-        case 82:
-            reset_all();
-            break;
-
-        case 67:
-            show_circles = show_circles ? false : true;
-            break;
-
-        default:
-            return false;
+function evaluate_curve() {
+    if (!evaluated) {
+        fpoints = evaluate_curve_points(curve_points);
+        evaluated = true;
     }
+}
+
+function toggle_circles() {
+    show_circles = !show_circles;
 }
