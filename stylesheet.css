@@ -19,6 +19,7 @@ body {
     display: inline-block;
     margin: 10px 5px;
     border-radius: 8px;
+    cursor: pointer;
     display: block;
     width: 20%;
 }
