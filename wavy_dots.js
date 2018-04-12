@@ -112,13 +112,13 @@ function draw_circles(fpoints) {
         if (show_shapes) {
             noFill();
             stroke(127);
-            strokeWeight(1);
+            strokeWeight(1.5);
 
             let circ_r = Math.sqrt(c[0] * c[0] + c[1] * c[1]);
             ellipse(0, 0, 2 * circ_r, 2 * circ_r);
             if (i == fpoints.length - 1) {
                 stroke(255, 0, 0);
-                strokeWeight(3);
+                strokeWeight(2);
             }
             else {
                 stroke(0, 255, 0);
@@ -149,7 +149,7 @@ function draw_path(path) {
 
 function draw_axes() {
     stroke(42);
-    strokeWeight(1);
+    strokeWeight(2);
 
     line(0, height / 2, 0, -height / 2);
     line(-width / 2, 0, width / 2, 0);

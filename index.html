@@ -12,9 +12,9 @@
 
 <body>
   <div id="graphContainer"></div>
-  <button class="button eval" id="eval_button" onclick="evaluate_curve()">Evaluate</button>
-  <button class="button reset" id="reset_button" onclick="reset_all()">Reset</button>
-  <button class="button toggle" id="toggle_button" onclick="toggle_shapes()">Toggle Shapes</button>
+  <button class="button eval" id="eval_button" onclick="evaluate_curve()" on-tap="evaluate_curve()">Evaluate</button>
+  <button class="button reset" id="reset_button" onclick="reset_all()" on-tap="reset_all()">Reset</button>
+  <button class="button toggle" id="toggle_button" onclick="toggle_shapes()" on-tap="toggle_shapes()">Toggle Shapes</button>
   <p>Draw speed</p>
   <input type="range" value="0.5" min="0" max="1" step="any" class="slider" id="draw_speed">
 </body>
