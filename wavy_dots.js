@@ -200,7 +200,7 @@ function reset_all() {
     show_shapes = true;
 }
 
-function mouseReleased() {
+function mousePressed() {
     if (!evaluated) {
         if (mouseX > 0 & mouseX < width & mouseY > 0 & mouseY < height) {
             let x = map(mouseX, 0, width, -width / 2, width / 2);
