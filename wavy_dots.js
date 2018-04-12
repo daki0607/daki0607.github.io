@@ -157,17 +157,13 @@ function draw_axes() {
 
 
 function setup() {
-    graph = createCanvas(750, 750);
+    // 750, 750
+    let dim = min(windowWidth, windowHeight);
+    graph = createCanvas(Math.round(dim*0.75), Math.round(dim*0.75));
     graph.parent('graphContainer');
-    button_eval = createButton('Evaluate');
-    button_eval.parent('evalButton');
-    button_eval.mousePressed(evaluate_curve);
-    button_reset = createButton('Reset');
-    button_reset.parent('resetButton');
-    button_reset.mousePressed(reset_all);
-    button_show_shapes = createButton('Toggle Shapes');
-    button_show_shapes.parent('showShapesButton');
-    button_show_shapes.mousePressed(toggle_shapes);
+    button_eval = document.getElementById("eval_button");
+    button_reset = document.getElementById("reset_button");
+    button_show_shapes = document.getElementById("toggle_button");
     draw_speed = document.getElementById("draw_speed");
 
     // test_points = [[0, 150], [100, -100], [-100, -50], [0, 0]];

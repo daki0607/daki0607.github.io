@@ -10,14 +10,19 @@ body {
     float: left;
 }
 
-#evalButton {
-    padding: 10px;
+.button {
+    background-color: green;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px;
+    border-radius: 8px;
+    display: block;
+    width: 20%;
 }
 
-#resetButton {
-    padding: 10px;
-}
-
-#showShapesButton {
-    padding: 10px;
-}
+.eval {padding: 10px;}
+.reset {padding: 10px;}
+.toggle {padding: 10px;}
