@@ -208,8 +208,6 @@ function mouseReleased() {
             curve_points.push([x, y]);
         }
     }
-
-    return false;
 }
 
 function evaluate_curve() {
