@@ -117,7 +117,7 @@ let c = function(crv) {
         }
     }
 
-    crv.mousePressed = function() {
+    crv.touchStarted = function() {
         if (crv.dist(cones[2].pos.x, cones[2].pos.y, crv.mouseX, crv.mouseY) < 10) {
             cones[2].active = true;
         }
@@ -127,7 +127,7 @@ let c = function(crv) {
         return false;
     }
 
-    crv.mouseDragged = function() {
+    crv.touchMoved = function() {
         if (cones[2].active) {
             cones[2].move();
         }

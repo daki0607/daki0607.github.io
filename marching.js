@@ -103,7 +103,7 @@ let s = function(str) {
         }
     }
 
-    str.mousePressed = function() {
+    str.touchStarted = function() {
         for (let i = 2; i < 4; i++) {
             if (str.dist(cones[i].pos.x, cones[i].pos.y, str.mouseX, str.mouseY) < 10) {
                 cones[i].active = true;
@@ -115,7 +115,7 @@ let s = function(str) {
         return false;
     }
 
-    str.mouseDragged = function() {
+    str.touchMoved = function() {
         for (let i = 2; i < 4; i++) {
             if (cones[i].active) {
                 cones[i].move();
