@@ -1,23 +1,37 @@
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="stylesheet.css">
+  
   <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-  <script language="javascript" type="text/javascript" src="wavy_dots.js"></script>
-  <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="marching.js"></script>
+  <script language="javascript" type="text/javascript" src="curving.js"></script>
   <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
 </head>
 
 <body>
-  <div id="graphContainer"></div>
-  <button class="button eval" id="eval_button" onclick="evaluate_curve()" on-tap="evaluate_curve()">Evaluate</button>
-  <button class="button reset" id="reset_button" onclick="reset_all()" on-tap="reset_all()">Reset</button>
-  <button class="button toggle" id="toggle_button" onclick="toggle_shapes()" on-tap="toggle_shapes()">Toggle Shapes</button>
-  <p>Draw speed</p>
-  <div class="speed_slider">
-    <input type="range" value="0.5" min="0" max="1" step="any" class="slider" id="draw_speed">
-  </div>
+  <p style="text-align: center; font-style: italic; font-weight: 600; font-size: 30px; ">Marching Band Simulator 3141</p>
+
+  <p style="text-align: center; font-style: italic; font-size: 20px;">Straight / Variable Road Width</p>
+  
+  <div id="straight" style="display: block; text-align: center;"></div>
+  <p style="text-align: center; font-size: 15px;">
+    Move the top cones to change the size of the road. <br>
+    Students come marching 4 seconds after the page loads.
+  </p>
+  
+  <br>
+  <p style="text-align: center; font-style: italic; font-size: 20px;">Around a Bend</p>
+
+  <div id="curved" style="display: block; text-align: center"></div>
+  <p style="text-align: center; font-size: 15px;">
+    Move the top left cone to change the size and curvature of the road. <br>
+    Students come marching 4 seconds after the page loads.
+  </p>
+
+  <br><br><br>
+  <p style="text-align: center; font-size: 10px; font-style: italic">
+     Grad Prank lol.
+  </p>
 </body>
 </html>
