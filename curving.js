@@ -5,7 +5,7 @@ let c = function(crv) {
     let cones = [];
     let start_markers = [];
     let end_markers = [];
-    let padding = 30;
+    let padding = 35;
     let spacing = 30;
     let added = false;
     let start;
@@ -23,6 +23,8 @@ let c = function(crv) {
         render() {
             crv.noStroke();
             crv.fill(255, 115, 35);
+            crv.ellipse(this.pos.x, this.pos.y, 25, 25);
+            crv.fill(255, 200, 0);
             crv.ellipse(this.pos.x, this.pos.y, 15, 15);
         }
     }
@@ -36,7 +38,7 @@ let c = function(crv) {
 
         render() {
             crv.noStroke();
-            crv.fill(255, 200, 0);
+            crv.fill(255, 255, 0);
             crv.ellipse(this.pos.x, this.pos.y, 15, 15);
         }
 
