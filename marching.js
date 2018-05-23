@@ -5,7 +5,7 @@ let s = function(str) {
     let cones = [];
     let start_markers = [];
     let end_markers = [];
-    let padding = 25;
+    let padding = 30;
     let spacing = 30;
     let added = false;
     let start;
@@ -24,7 +24,7 @@ let s = function(str) {
         render() {
             str.noStroke();
             str.fill(255, 115, 35);
-            str.ellipse(this.pos.x, this.pos.y, 10, 10);
+            str.ellipse(this.pos.x, this.pos.y, 15, 15);
         }
     }
 
