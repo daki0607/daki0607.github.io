@@ -42,7 +42,7 @@ function draw() {
   }
 }
 
-function mouseClicked() {
+function touchStarted() {
   if (chosen && clicks > 0) {
     choice = random([0, 1, 2]);
     pos[0] = ((pos[0] + Triangle[choice][0]) / 2);
@@ -62,4 +62,6 @@ function mouseClicked() {
     fill(255);
     ellipse(pos[0], pos[1], 3, 3);
   }
+
+  return false;
 }
