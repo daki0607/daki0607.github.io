@@ -1,14 +1,13 @@
 let s = function(str) {
         
-    let num_peeps = 40;
+    let numPeeps = 40;
     let peeps = [];
     let cones = [];
-    let start_markers = [];
-    let end_markers = [];
+    let startMarkers = [];
+    let endMarkers = [];
     let padding = 35;
     let spacing = 30;
-    let added = false;
-    let start;
+    let straightButton;
 
     class Cone {
         constructor(x, y) {
@@ -51,14 +50,14 @@ let s = function(str) {
         move() {
             this.pos.y--;
             if (this.pos.y < cones[0].pos.y && this.pos.y > cones[2].pos.y) {
-                this.pos.x += (end_markers[this.order].x - start_markers[this.order].x) / (start_markers[this.order].y - end_markers[this.order].y);
+                this.pos.x += (endMarkers[this.order].x - startMarkers[this.order].x) / (startMarkers[this.order].y - endMarkers[this.order].y);
             }
         }
     }
 
-    function addPeeps() {
-        for (let p = 0; p < num_peeps; p++) {
-            let x = start_markers[p % 5].x;
+    function add_peeps() {
+        for (let p = 0; p < numPeeps; p++) {
+            let x = startMarkers[p % 5].x;
             let y = str.floor(p / 5) * spacing + 550;
             peeps.push(new Peep(p % 5, x, y));
         }
@@ -72,14 +71,16 @@ let s = function(str) {
         cones.push(new Cone(100, 100)); // Top left
         cones.push(new Cone(400, 100)); // Top right
 
+        straightButton = createButton('March!');
+        straightButton.parent("straight-button");
+        straightButton.mousePressed(add_peeps);
+
         for (let i = 0; i < 5; i++) {
             start_posX = str.lerp(cones[0].pos.x + padding, cones[1].pos.x - padding, i / 4);
             start_posY = 400;
             
-            start_markers.push(str.createVector(start_posX, start_posY));
+            startMarkers.push(str.createVector(start_posX, start_posY));
         }
-
-        start = str.millis();
     }
 
     str.draw = function() {
@@ -93,20 +94,13 @@ let s = function(str) {
             end_posX = str.lerp(cones[2].pos.x + padding, cones[3].pos.x - padding, j / 4);
             end_posY = cones[2].pos.y;
 
-            end_markers[j] = str.createVector(end_posX, end_posY);
+            endMarkers[j] = str.createVector(end_posX, end_posY);
         }
 
         if (peeps.length > 0) {
-            for (let p = 0; p < num_peeps; p++) {
+            for (let p = 0; p < numPeeps; p++) {
                 peeps[p].move();
                 peeps[p].render();
-            }
-        }
-
-        if (str.millis() - start >= 4000) {
-            if (!added) {
-                addPeeps();
-                added = true;
             }
         }
     }

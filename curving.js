@@ -51,8 +51,8 @@ let c = function(crv) {
         move() {
             if (this.pos.x >= 100 && this.pos.y <= 400) {
                 let startX = start_markers[this.order].x;
-                let startY = start_markers[this.order].y;
-                let endX = end_markers[this.order].x;
+                // let startY = start_markers[this.order].y;
+                // let endX = end_markers[this.order].x;
                 let endY = end_markers[this.order].y;
 
                 let newX = cones[0].pos.x + (startX - cones[0].pos.x) * crv.cos(this.t);
