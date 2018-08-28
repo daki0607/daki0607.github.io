@@ -22,10 +22,16 @@ let c = function(crv) {
 
         render() {
             crv.noStroke();
-            crv.fill(255, 115, 35);
+            crv.fill(255, 69, 0);
             crv.ellipse(this.pos.x, this.pos.y, 25, 25);
-            crv.fill(255, 200, 0);
+            crv.fill(255, 255, 255);
+            crv.ellipse(this.pos.x, this.pos.y, 18, 18);
+            crv.fill(255, 69, 0);
             crv.ellipse(this.pos.x, this.pos.y, 15, 15);
+            crv.fill(255, 255, 255);
+            crv.ellipse(this.pos.x, this.pos.y, 10, 10);
+            crv.fill(255, 69, 0);
+            crv.ellipse(this.pos.x, this.pos.y, 7, 7);
         }
     }
 

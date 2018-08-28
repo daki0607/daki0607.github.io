@@ -23,10 +23,16 @@ let s = function(str) {
 
         render() {
             str.noStroke();
-            str.fill(255, 115, 0);
+            str.fill(255, 69, 0);
             str.ellipse(this.pos.x, this.pos.y, 25, 25);
-            str.fill(255, 200, 0);
+            str.fill(255, 255, 255);
+            str.ellipse(this.pos.x, this.pos.y, 18, 18);
+            str.fill(255, 69, 0);
             str.ellipse(this.pos.x, this.pos.y, 15, 15);
+            str.fill(255, 255, 255);
+            str.ellipse(this.pos.x, this.pos.y, 10, 10);
+            str.fill(255, 69, 0);
+            str.ellipse(this.pos.x, this.pos.y, 7, 7);
         }
     }
 
