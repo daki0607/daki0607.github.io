@@ -1,13 +1,11 @@
 let s = function(str) {
-        
-    let numPeeps = 40;
+
     let peeps = [];
     let cones = [];
     let startMarkers = [];
     let endMarkers = [];
     let padding = 35;
     let spacing = 30;
-    let straightButton;
 
     class Cone {
         constructor(x, y) {
@@ -55,8 +53,8 @@ let s = function(str) {
         }
     }
 
-    function add_peeps() {
-        for (let p = 0; p < numPeeps; p++) {
+    str.add_peeps = function() {
+        for (let p = 0; p < 30; p++) {
             let x = startMarkers[p % 5].x;
             let y = str.floor(p / 5) * spacing + 550;
             peeps.push(new Peep(p % 5, x, y));
@@ -70,10 +68,6 @@ let s = function(str) {
         cones.push(new Cone(400, 400)); // Bottom right
         cones.push(new Cone(100, 100)); // Top left
         cones.push(new Cone(400, 100)); // Top right
-
-        straightButton = createButton('March!');
-        straightButton.parent("straight-button");
-        straightButton.mousePressed(add_peeps);
 
         for (let i = 0; i < 5; i++) {
             start_posX = str.lerp(cones[0].pos.x + padding, cones[1].pos.x - padding, i / 4);
@@ -97,11 +91,9 @@ let s = function(str) {
             endMarkers[j] = str.createVector(end_posX, end_posY);
         }
 
-        if (peeps.length > 0) {
-            for (let p = 0; p < numPeeps; p++) {
-                peeps[p].move();
-                peeps[p].render();
-            }
+        for (let p = 0; p < peeps.length; p++) {
+            peeps[p].move();
+            peeps[p].render();
         }
     }
 
@@ -140,5 +132,3 @@ let s = function(str) {
     }
     */
 }
-
-let myp5 = new p5(s, "straight");

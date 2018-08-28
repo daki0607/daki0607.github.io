@@ -1,14 +1,11 @@
 let c = function(crv) {
 
-    let num_peeps = 40;
     let peeps = [];
     let cones = [];
     let start_markers = [];
     let end_markers = [];
     let padding = 35;
     let spacing = 30;
-    let added = false;
-    let start;
 
     class Cone {
         constructor(x, y) {
@@ -71,8 +68,8 @@ let c = function(crv) {
         }
     }
 
-    function addPeeps() {
-        for (let p = 0; p < num_peeps; p++) {
+    crv.add_peeps = function() {
+        for (let p = 0; p < 30; p++) {
             let x = start_markers[p % 5].x;
             let y = crv.floor(p / 5) * spacing + 550;
             peeps.push(new Peep(p % 5, x, y));
@@ -92,8 +89,6 @@ let c = function(crv) {
             
             start_markers.push(crv.createVector(start_posX, start_posY));
         }
-
-        start = crv.millis();
     }
 
     crv.draw = function() {
@@ -110,18 +105,9 @@ let c = function(crv) {
             end_markers[j] = crv.createVector(end_posX, end_posY);
         }
 
-        if (peeps.length > 0) {
-            for (let p = 0; p < num_peeps; p++) {
-                peeps[p].move();
-                peeps[p].render();
-            }
-        }
-
-        if (crv.millis() - start >= 4000) {
-            if (!added) {
-                addPeeps();
-                added = true;
-            }
+        for (let p = 0; p < peeps.length; p++) {
+            peeps[p].move();
+            peeps[p].render();
         }
     }
 
@@ -142,5 +128,3 @@ let c = function(crv) {
         return false;
     }
 }
-
-let yourp5 = new p5(c, "curved");
