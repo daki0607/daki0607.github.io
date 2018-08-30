@@ -2,38 +2,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=600px, user-scalable=0">
+
+  <link rel="stylesheet" href="stylesheet.css">
   
-  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
   <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
   <script language="javascript" type="text/javascript" src="straight.js"></script>
   <script language="javascript" type="text/javascript" src="curving.js"></script>
   <script language="javascript" type="text/javascript" src="visuals.js"></script>
-  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
-</head>
+  </head>
 
 <body>
-  <p style="text-align: center; font-style: italic; font-weight: 600; font-size: 30px; ">Marching Band Simulator 3141</p>
+  <h1>Marching Band Simulator 3141</h1>
 
-  <p style="text-align: center; font-style: italic; font-size: 20px;">Straight / Variable Road Width</p>
+  <h3>Straight / Variable Road Width</h3>
   
   <div id="straight" style="display: block; text-align: center; overflow: hidden;"></div>
-  <p style="text-align: center; font-size: 15px;">
+  <p>
     Move the top cones to change the size of the road.
   </p>
   <button type="button" id="straight-button" onclick="straightMarch.add_peeps()">March!</button>
   
   <br>
-  <p style="text-align: center; font-style: italic; font-size: 20px;">Around a Bend</p>
+  <h3>Around a Bend</h3>
 
   <div id="curved" style="display: block; text-align: center; overflow: hidden;"></div>
-  <p style="text-align: center; font-size: 15px;">
+  <p>
     Move the top left cone to change the size and curvature of the road.
   </p>
   <button type="button" id="curve-button" onclick="curveMarch.add_peeps()">March!</button>
 
   <br><br><br>
-  <p style="text-align: center; font-size: 10px; font-style: italic">
+  <p id="prank">
      Grad Prank lol.
   </p>
 </body>
