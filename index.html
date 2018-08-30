@@ -4,6 +4,8 @@
   <meta name="viewport" content="width=600px, user-scalable=0">
 
   <link rel="stylesheet" href="stylesheet.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Fresca" rel="stylesheet">
   
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
   <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
@@ -15,24 +17,38 @@
 <body>
   <h1>Marching Band Simulator 3141</h1>
 
-  <h3>Straight / Variable Road Width</h3>
-  
-  <div id="straight" style="display: block; text-align: center; overflow: hidden;"></div>
-  <p>
-    Move the top cones to change the size of the road.
-  </p>
-  <button type="button" id="straight-button" onclick="straightMarch.add_peeps()">March!</button>
-  
   <br>
-  <h3>Around a Bend</h3>
 
+  <div>
+    <h3>Straight / Variable Road Width</h3>
+  </div>
+  <div id="straight" style="display: block; text-align: center; overflow: hidden;"></div>
+  <div>
+    <p>
+      Move the top cones to change the size of the road.
+    </p>
+  </div>
+  <div class="button-container">
+    <button class="button" id="straight-button" onclick="straightMarch.add_peeps()">March!</button>
+  </div>
+
+  <br><br>
+
+  <div>
+    <h3>Around a Bend</h3>
+  </div>
+  
   <div id="curved" style="display: block; text-align: center; overflow: hidden;"></div>
-  <p>
-    Move the top left cone to change the size and curvature of the road.
-  </p>
-  <button type="button" id="curve-button" onclick="curveMarch.add_peeps()">March!</button>
+  <div>
+    <p>Move the top left cone to change the size and curvature of the road.</p>
+  </div>
+  
+  <div class="button-container"> 
+    <button class="button" id="curve-button" onclick="curveMarch.add_peeps()">March!</button>
+  </div>
 
-  <br><br><br>
+  <br><br><br><br>
+
   <p id="prank">
      Grad Prank lol.
   </p>
