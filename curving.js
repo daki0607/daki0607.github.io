@@ -18,17 +18,18 @@ let c = function(crv) {
         }
 
         render() {
+            let scaling = (this.active) ? 1.5: 1;
             crv.noStroke();
             crv.fill(255, 69, 0);
-            crv.ellipse(this.pos.x, this.pos.y, 25, 25);
+            crv.ellipse(this.pos.x, this.pos.y, 25 * scaling, 25 * scaling);
             crv.fill(255, 255, 255);
-            crv.ellipse(this.pos.x, this.pos.y, 18, 18);
+            crv.ellipse(this.pos.x, this.pos.y, 18 * scaling, 18 * scaling);
             crv.fill(255, 69, 0);
-            crv.ellipse(this.pos.x, this.pos.y, 15, 15);
+            crv.ellipse(this.pos.x, this.pos.y, 15 * scaling, 15 * scaling);
             crv.fill(255, 255, 255);
-            crv.ellipse(this.pos.x, this.pos.y, 10, 10);
+            crv.ellipse(this.pos.x, this.pos.y, 10 * scaling, 10 * scaling);
             crv.fill(255, 69, 0);
-            crv.ellipse(this.pos.x, this.pos.y, 7, 7);
+            crv.ellipse(this.pos.x, this.pos.y, 7 * scaling, 7 * scaling);
         }
     }
 
@@ -112,7 +113,7 @@ let c = function(crv) {
     }
 
     crv.touchStarted = function() {
-        if (crv.dist(cones[2].pos.x, cones[2].pos.y, crv.mouseX, crv.mouseY) < 10) {
+        if (crv.dist(cones[2].pos.x, cones[2].pos.y, crv.mouseX, crv.mouseY) < 40) {
             cones[2].active = true;
         }
         else {
@@ -125,6 +126,12 @@ let c = function(crv) {
         if (cones[2].active) {
             cones[2].move();
         }
+        return false;
+    }
+
+    crv.touchEnded = function() {
+        cones[2].active = false;
+
         return false;
     }
 }

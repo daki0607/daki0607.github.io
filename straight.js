@@ -19,17 +19,18 @@ let s = function(str) {
         }
 
         render() {
+            let scaling = (this.active) ? 1.5: 1;
             str.noStroke();
             str.fill(255, 69, 0);
-            str.ellipse(this.pos.x, this.pos.y, 25, 25);
+            str.ellipse(this.pos.x, this.pos.y, 25 * scaling, 25 * scaling);
             str.fill(255, 255, 255);
-            str.ellipse(this.pos.x, this.pos.y, 18, 18);
+            str.ellipse(this.pos.x, this.pos.y, 18 * scaling, 18 * scaling);
             str.fill(255, 69, 0);
-            str.ellipse(this.pos.x, this.pos.y, 15, 15);
+            str.ellipse(this.pos.x, this.pos.y, 15 * scaling, 15 * scaling);
             str.fill(255, 255, 255);
-            str.ellipse(this.pos.x, this.pos.y, 10, 10);
+            str.ellipse(this.pos.x, this.pos.y, 10 * scaling, 10 * scaling);
             str.fill(255, 69, 0);
-            str.ellipse(this.pos.x, this.pos.y, 7, 7);
+            str.ellipse(this.pos.x, this.pos.y, 7 * scaling, 7 * scaling);
         }
     }
 
@@ -99,7 +100,7 @@ let s = function(str) {
 
     str.touchStarted = function() {
         for (let i = 2; i < 4; i++) {
-            if (str.dist(cones[i].pos.x, cones[i].pos.y, str.mouseX, str.mouseY) < 10) {
+            if (str.dist(cones[i].pos.x, cones[i].pos.y, str.mouseX, str.mouseY) < 40) {
                 cones[i].active = true;
             }
             else {
@@ -117,6 +118,14 @@ let s = function(str) {
                 cones[3].pos.y = cones[i].pos.y;
             }
         }
+        return false;
+    }
+
+    str.touchEnded = function() {
+        for (let i = 2; i < 4; i++) {
+            cones[i].active = false;
+        }
+
         return false;
     }
 
