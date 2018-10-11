@@ -132,6 +132,6 @@ let c = function(crv) {
     crv.touchEnded = function() {
         cones[2].active = false;
 
-        return false;
+        //return false;
     }
 }

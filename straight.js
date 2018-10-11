@@ -126,7 +126,7 @@ let s = function(str) {
             cones[i].active = false;
         }
 
-        return false;
+        //return false;
     }
 
     /*
