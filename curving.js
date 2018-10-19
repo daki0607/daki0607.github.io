@@ -5,7 +5,7 @@ let c = function(crv) {
     let start_markers = [];
     let end_markers = [];
     let padding = 35;
-    let spacing = 30;
+    let spacing = 35;
 
     class Cone {
         constructor(x, y) {
@@ -131,7 +131,8 @@ let c = function(crv) {
 
     crv.touchEnded = function() {
         cones[2].active = false;
-
+        
         //return false;
     }
 }
+    

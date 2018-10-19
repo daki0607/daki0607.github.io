@@ -5,7 +5,7 @@ let s = function(str) {
     let startMarkers = [];
     let endMarkers = [];
     let padding = 35;
-    let spacing = 30;
+    let spacing = 35;
 
     class Cone {
         constructor(x, y) {
@@ -69,7 +69,7 @@ let s = function(str) {
         cones.push(new Cone(400, 400)); // Bottom right
         cones.push(new Cone(100, 100)); // Top left
         cones.push(new Cone(400, 100)); // Top right
-
+        
         for (let i = 0; i < 5; i++) {
             start_posX = str.lerp(cones[0].pos.x + padding, cones[1].pos.x - padding, i / 4);
             start_posY = 400;
