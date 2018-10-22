@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=600, user-scalable=0">
+  <meta name="viewport" content="width=600, height=1800, user-scalable=0">
 
   <link rel="stylesheet" href="stylesheet.css">
 
@@ -12,9 +12,12 @@
   <script language="javascript" type="text/javascript" src="straight.js"></script>
   <script language="javascript" type="text/javascript" src="curving.js"></script>
   <script language="javascript" type="text/javascript" src="visuals.js"></script>
+  <script language="javascript" type="text/javascript" src="note_background.js"></script>
   </head>
 
 <body>
+  <div id="notes"></div>
+  <div>
   <h1>Marching Band Simulator 3141</h1>
 
   <br>
@@ -22,12 +25,10 @@
   <div>
     <h3>Straight / Variable Road Width</h3>
   </div>
-  <div id="straight" style="display: block; text-align: center; overflow: hidden;"></div>
+  <div id="straight"></div>
   
   <div>
-    <p>
-      Move the top cones to change the size of the road.
-    </p>
+    <p>Tap and hold the top cones to change the size of the road.</p>
   </div>
   <div class="button-container">
     <button class="button" id="straight-button" onclick="straightMarch.add_peeps()">March!</button>
@@ -39,9 +40,9 @@
     <h3>Around a Bend</h3>
   </div>
   
-  <div id="curved" style="display: block; text-align: center; overflow: hidden;"></div>
+  <div id="curved"></div>
   <div>
-    <p>Move the top left cone to change the size and curvature of the road.</p>
+    <p>Tap and hold the top left cone to change the <br>size and curvature of the road.</p>
   </div>
   
   <div class="button-container"> 
@@ -53,5 +54,6 @@
   <p id="prank">
      Grad Prank lol.
   </p>
+  </div>
 </body>
 </html>
