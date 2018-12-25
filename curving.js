@@ -78,6 +78,7 @@ let c = function(crv) {
     }
 
     crv.setup = function() {
+        crv.frameRate(30);
         crv.createCanvas(500, 500);
 
         cones.push(new Cone(100, 400)); // Bottom left

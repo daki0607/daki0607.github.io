@@ -1,5 +1,6 @@
 let n = function(nt) {
 
+    let numNotes = 5;
     let notes = [];
     let trombone;
     let trumpet;
@@ -16,18 +17,17 @@ let n = function(nt) {
         constructor(texture) {
             this.img = texture;
 
-            // 1 = from left, 0 = from right
-            let direction = nt.random([0, 1]);
+            let direction = nt.random() > 0.5 ? true : false;
             let x;
-            let y = nt.random(-nt.height/3, nt.height/2);
+            let y = nt.random(0, nt.height/2);
             
             if (direction) {
-                x = nt.random(-1000, -100);
+                x = nt.random(-300, -100);
                 this.angle = nt.random(-PI/4, PI/6);
             }
 
             else {
-                x = width + nt.random(100, 1000);
+                x = nt.width + nt.random(100, 300);
                 this.angle = nt.random(-3*PI/4, 5*PI/6);
             }
 
@@ -64,25 +64,27 @@ let n = function(nt) {
         }
 
         randomize() {
-            let direction = nt.random([0, 1]);
+            let direction = nt.random() > 0.5 ? true : false;
             let x;
-            let y = nt.random(-nt.height/3, nt.height/2);
+            let y = nt.random(0, nt.height/2);
             
             if (direction) {
-                x = nt.random(-200, -10);
+                x = nt.random(-200, -50);
                 this.angle = nt.random(-PI/4, PI/6);
             }
 
             else {
-                x = width + nt.random(10, 200);
+                x = nt.width + nt.random(50, 200);
                 this.angle = nt.random(-3*PI/4, 5*PI/6);
             }
 
-            this.r = nt.random(20, 50);
+            this.r = nt.random(30, 60);
             this.pos = nt.createVector(x, y);
-            this.vel = nt.createVector(2*nt.cos(this.angle), 2*nt.sin(this.angle));
+            this.vel = nt.createVector(2 * nt.cos(this.angle), 2 * nt.sin(this.angle));
             this.acc = nt.createVector(0, 0.007);
             this.rotSpeed = nt.random(-0.04, 0.04);
+
+            this.img = nt.random([trombone, trumpet, clarinet, saxophone, bassClef, trebleClef, halfNote, quarterNote, eighthNote]);
         }
     }
 
@@ -100,9 +102,10 @@ let n = function(nt) {
     }
 
     nt.setup = function() {
-        nt.createCanvas(600, 1800);
+        nt.frameRate(50);
+        nt.createCanvas(windowWidth, windowHeight*2);
 
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < numNotes; i++) {
             let texture = nt.random([trombone, trumpet, clarinet, saxophone, bassClef, trebleClef, halfNote, quarterNote, eighthNote]);
             notes.push(new Note(texture));
         }
@@ -111,9 +114,9 @@ let n = function(nt) {
     nt.draw = function() {
         nt.background(255);
 
-        for (note of notes) {
-            note.update();
-            note.render();
+        for (let i = 0; i < numNotes; i++) {
+            notes[i].update();
+            notes[i].render();
         }
     }
 }

@@ -47,9 +47,9 @@ let s = function(str) {
         }
 
         move() {
-            this.pos.y--;
+            this.pos.y -= 1.5;
             if (this.pos.y < cones[0].pos.y && this.pos.y > cones[2].pos.y) {
-                this.pos.x += (endMarkers[this.order].x - startMarkers[this.order].x) / (startMarkers[this.order].y - endMarkers[this.order].y);
+                this.pos.x += 2 * (endMarkers[this.order].x - startMarkers[this.order].x) / (startMarkers[this.order].y - endMarkers[this.order].y);
             }
         }
     }
@@ -63,6 +63,7 @@ let s = function(str) {
     }
 
     str.setup = function() {
+        str.frameRate(30);
         str.createCanvas(500, 500);
 
         cones.push(new Cone(100, 400)); // Bottom left
