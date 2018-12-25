@@ -58,13 +58,15 @@ let c = function(crv) {
 
                 this.pos.x = newX;
                 this.pos.y = newY;
-                this.t += 0.005;
+                this.t += 0.008;
             }
-            if (this.pos.y > 400 && this.pos.x > 100) {
-                this.pos.y--;
+
+            if (this.pos.y > 399 && this.pos.x > 100) {
+                this.pos.y -= 1.5;
             }
-            if (this.pos.y < 400 && this.pos.x < 100) {
-                this.pos.x--;
+
+            if (this.pos.y < 399 && this.pos.x < 100) {
+                this.pos.x -= 1.5;
             }
         }
     }
@@ -86,8 +88,8 @@ let c = function(crv) {
         cones.push(new Cone(100, 100)); // Top left
 
         for (let i = 0; i < 5; i++) {
-            start_posX = crv.lerp(cones[0].pos.x + padding, cones[1].pos.x - padding, i / 4);
-            start_posY = 400;
+            let start_posX = crv.lerp(cones[0].pos.x + padding, cones[1].pos.x - padding, i / 4);
+            let start_posY = 400;
             
             start_markers.push(crv.createVector(start_posX, start_posY));
         }
@@ -101,8 +103,8 @@ let c = function(crv) {
         }
 
         for (let j = 0; j < 5; j++) {
-            end_posY = crv.lerp(cones[0].pos.y - padding, cones[2].pos.y + padding, j / 4);
-            end_posX = cones[0].pos.x;
+            let end_posY = crv.lerp(cones[0].pos.y - padding, cones[2].pos.y + padding, j / 4);
+            let end_posX = cones[0].pos.x;
 
             end_markers[j] = crv.createVector(end_posX, end_posY);
         }
@@ -110,6 +112,10 @@ let c = function(crv) {
         for (let p = 0; p < peeps.length; p++) {
             peeps[p].move();
             peeps[p].render();
+
+            if (peeps[p].pos.x < -20) {
+                peeps.splice(p, 1);
+            }
         }
     }
 

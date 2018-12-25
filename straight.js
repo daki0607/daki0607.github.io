@@ -96,6 +96,10 @@ let s = function(str) {
         for (let p = 0; p < peeps.length; p++) {
             peeps[p].move();
             peeps[p].render();
+
+            if (peeps[p].pos.y < -20) {
+                peeps.splice(p, 1);
+            }
         }
     }
 

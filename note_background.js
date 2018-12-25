@@ -17,7 +17,7 @@ let n = function(nt) {
         constructor(texture) {
             this.img = texture;
 
-            let direction = nt.random() > 0.5 ? true : false;
+            let direction = nt.random(-50, 50) > 0 ? true : false;
             let x;
             let y = nt.random(0, nt.height/2);
             
@@ -64,7 +64,7 @@ let n = function(nt) {
         }
 
         randomize() {
-            let direction = nt.random() > 0.5 ? true : false;
+            let direction = nt.random(-50, 50) > 0 ? true : false;
             let x;
             let y = nt.random(0, nt.height/2);
             
@@ -75,7 +75,7 @@ let n = function(nt) {
 
             else {
                 x = nt.width + nt.random(50, 200);
-                this.angle = nt.random(-3*PI/4, 5*PI/6);
+                this.angle = nt.random(PI + PI/4, 5*PI/6);
             }
 
             this.r = nt.random(30, 60);
