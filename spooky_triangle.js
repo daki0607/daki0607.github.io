@@ -10,7 +10,7 @@ let threshold = 1000;
 let aspect;
 
 function draw_verticies(verticies) {
-  translate(aspect/2, aspect/2);
+  translate(windowWidth/2, windowHeight/2);
   scale(1, -1);
   noStroke();
   fill(color(50, 200, 50, 127));
@@ -56,7 +56,7 @@ function setup() {
 }
 
 function draw() {
-  translate(aspect/2, aspect/2);
+  translate(windowWidth/2, windowHeight/2);
   scale(1, -1);
 
   let currentTime = millis();
@@ -102,8 +102,8 @@ function mouseClicked() {
   }
 
   if (!chosen) {
-    let x = map(mouseX, 0, windowWidth, -aspect/2, aspect/2);
-    let y = map(mouseY, 0, windowHeight, aspect/2, -aspect/2);
+    let x = map(mouseX, 0, windowWidth, -windowWidth/2, windowWidth/2);
+    let y = map(mouseY, 0, windowHeight, windowHeight/2, -windowHeight/2);
     pos = createVector(x, y);
     chosen = true;
 
