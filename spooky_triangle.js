@@ -83,7 +83,7 @@ function draw() {
   }
 }
 
-function mouseClicked() {
+function touchEnded() {
   if (chosen && clicks > 0) {
     let choice = floor(random(numVerticies));
 
@@ -111,4 +111,6 @@ function mouseClicked() {
     fill(255);
     ellipse(pos.x, pos.y, 4.5, 4.5);
   }
+
+  return false;
 }
