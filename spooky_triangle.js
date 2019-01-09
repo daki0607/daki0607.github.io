@@ -7,9 +7,10 @@ let clicks = 5;
 let numVerticies = 3;
 let clock;
 let threshold = 1000;
+let aspect;
 
 function draw_verticies(verticies) {
-  translate(width/2, height/2);
+  translate(aspect/2, aspect/2);
   scale(1, -1);
   noStroke();
   fill(color(50, 200, 50, 127));
@@ -36,10 +37,11 @@ function next_point(choice, verticies, size) {
 }
 
 function setup() {
-  createCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
+  createCanvas(windowWidth, windowHeight);
   background(51);
 
-  let scalingFactor = width / 2 * 0.85;
+  aspect = min(windowWidth, windowHeight);
+  let scalingFactor = aspect / 2 * 0.85;
   let angleBetween = TWO_PI / numVerticies;
   let offset = (numVerticies % 2 == 0) ? angleBetween / 2 : 0;
 
@@ -54,7 +56,7 @@ function setup() {
 }
 
 function draw() {
-  translate(width/2, height/2);
+  translate(aspect/2, aspect/2);
   scale(1, -1);
 
   let currentTime = millis();
@@ -100,8 +102,8 @@ function mouseClicked() {
   }
 
   if (!chosen) {
-    let x = map(mouseX, 0, width, -width/2, width/2);
-    let y = map(mouseY, 0, height, height/2, -height/2);
+    let x = map(mouseX, 0, windowWidth, -aspect/2, aspect/2);
+    let y = map(mouseY, 0, windowHeight, aspect/2, -aspect/2);
     pos = createVector(x, y);
     chosen = true;
 
