@@ -1,58 +1,15 @@
 <html>
 <head>
+  <title> Spooky Pattern! </title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=600, height=1800, user-scalable=0">
 
-  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css?family=Fresca" rel="stylesheet">
-  
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-  <script language="javascript" type="text/javascript" src="straight.js"></script>
-  <script language="javascript" type="text/javascript" src="curving.js"></script>
-  <script language="javascript" type="text/javascript" src="visuals.js"></script>
-  <script language="javascript" type="text/javascript" src="note_background.js"></script>
-  </head>
+  <script language="javascript" type="text/javascript" src="spooky_triangle.js"></script>
+</head>
 
 <body>
-  <div id="notes"></div>
-  <div>
-  <h1>Marching Band Simulator 3141</h1>
-
-  <br>
-
-  <div>
-    <h3>Straight / Variable Road Width</h3>
-  </div>
-  <div id="straight"></div>
-  
-  <div>
-    <p>Tap and hold the top cones to change the size of the road.</p>
-  </div>
-  <div class="button-container">
-    <button class="button" id="straight-button" onclick="straightMarch.add_peeps()">March!</button>
-  </div>
-
-  <br><br>
-
-  <div>
-    <h3>Around a Bend</h3>
-  </div>
-  
-  <div id="curved"></div>
-  <div>
-    <p>Tap and hold the top left cone to change the <br>size and curvature of the road.</p>
-  </div>
-  
-  <div class="button-container"> 
-    <button class="button" id="curve-button" onclick="curveMarch.add_peeps()">March!</button>
-  </div>
-
-  <br><br><br><br>
-
-  <p id="prank">
-     Grad Prank lol.
-  </p>
-  </div>
+  <div id="canvas"></div>
 </body>
 </html>
